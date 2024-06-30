@@ -1,0 +1,95 @@
+[gd_scene load_steps=16 format=3 uid="uid://clt1r6ok1ba3m"]
+
+[ext_resource type="Script" path="res://Scripts/barrel.gd" id="1_8nsta"]
+[ext_resource type="Texture2D" uid="uid://cnhswr4nwl1h7" path="res://Assets/Merchant Ship/Sprites/Barrel/Idle/1.png" id="1_fa65a"]
+[ext_resource type="Texture2D" uid="uid://c0itimm8w1v5u" path="res://Assets/Merchant Ship/Sprites/Barrel/Hit/4.png" id="2_fihqb"]
+[ext_resource type="Texture2D" uid="uid://ba0endixxmr47" path="res://Assets/Merchant Ship/Sprites/Barrel/Destroyed/1.png" id="3_jox7m"]
+[ext_resource type="Texture2D" uid="uid://de646ftylm8gk" path="res://Assets/Merchant Ship/Sprites/Barrel/Destroyed/2.png" id="4_1i5ff"]
+[ext_resource type="Texture2D" uid="uid://dt7d4n4bj0nti" path="res://Assets/Merchant Ship/Sprites/Barrel/Destroyed/3.png" id="5_v8dda"]
+[ext_resource type="Texture2D" uid="uid://b8uv1d1fvnb8q" path="res://Assets/Merchant Ship/Sprites/Barrel/Destroyed/4.png" id="6_3mjhm"]
+[ext_resource type="Texture2D" uid="uid://cotlisethmrov" path="res://Assets/Merchant Ship/Sprites/Barrel/Destroyed/5.png" id="7_jc2lq"]
+[ext_resource type="Texture2D" uid="uid://cfxicovv5gtf8" path="res://Assets/Merchant Ship/Sprites/Barrel/Hit/1.png" id="8_3rpgo"]
+[ext_resource type="Texture2D" uid="uid://dxgi3u5csfy7l" path="res://Assets/Merchant Ship/Sprites/Barrel/Hit/2.png" id="9_b3ob8"]
+[ext_resource type="Texture2D" uid="uid://bhyqo4fe5ty8d" path="res://Assets/Merchant Ship/Sprites/Barrel/Hit/3.png" id="10_4823p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r4185"]
+
+[sub_resource type="Animation" id="Animation_mtocg"]
+resource_name = "Destroyed"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0001, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_jox7m"), ExtResource("4_1i5ff"), ExtResource("5_v8dda"), ExtResource("6_3mjhm"), ExtResource("7_jc2lq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2, 6), Vector2(4, 10)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f2tdx"]
+resource_name = "Hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_fa65a"), ExtResource("8_3rpgo"), ExtResource("9_b3ob8"), ExtResource("10_4823p"), ExtResource("2_fihqb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eicfp"]
+_data = {
+"Destroyed": SubResource("Animation_mtocg"),
+"Hit": SubResource("Animation_f2tdx")
+}
+
+[node name="Barrel" type="Node2D" groups=["Objects"]]
+script = ExtResource("1_8nsta")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_r4185")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fa65a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eicfp")
+}

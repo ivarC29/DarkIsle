@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7snm4a3uagr3"]
+
+[ext_resource type="Texture2D" uid="uid://cp2nejld4cau0" path="res://Assets/Shooter Traps/Sprites/Totems/Wood Spike/Idle/1.png" id="1_o0oyg"]
+[ext_resource type="Script" path="res://Scripts/wood_spike.gd" id="1_yykqm"]
+[ext_resource type="Texture2D" uid="uid://bm5y63ajacx5j" path="res://Assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/1.png" id="2_sdd4o"]
+[ext_resource type="Texture2D" uid="uid://g50lfejhvj0h" path="res://Assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/2.png" id="3_o2heh"]
+[ext_resource type="Texture2D" uid="uid://bsxoaqlafpjmx" path="res://Assets/Shooter Traps/Sprites/Totems/Wood Spike/Destroyed/3.png" id="4_u2j2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ydfqq"]
+radius = 2.99682
+height = 13.9936
+
+[sub_resource type="Animation" id="Animation_jyse4"]
+resource_name = "Destroyed"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_o0oyg"), ExtResource("2_sdd4o"), ExtResource("3_o2heh"), ExtResource("4_u2j2i")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpg4h"]
+_data = {
+"Destroyed": SubResource("Animation_jyse4")
+}
+
+[node name="WoodSpike" type="Node2D"]
+script = ExtResource("1_yykqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o0oyg")
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.57396
+shape = SubResource("CapsuleShape2D_ydfqq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hpg4h")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

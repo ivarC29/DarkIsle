@@ -1,0 +1,197 @@
+[gd_scene load_steps=38 format=3 uid="uid://do6aswlo53vui"]
+
+[ext_resource type="Script" path="res://Scripts/fierce_tooth.gd" id="1_ljq71"]
+[ext_resource type="Texture2D" uid="uid://dfar6vm4jpkyq" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 03.png" id="1_oyqdv"]
+[ext_resource type="Texture2D" uid="uid://b3eijdxgwtkq7" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 01.png" id="2_7x7v7"]
+[ext_resource type="Texture2D" uid="uid://krihxhr5uahc" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 01.png" id="2_cd1u7"]
+[ext_resource type="Texture2D" uid="uid://ck1dr73kjqfg4" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="2_cslot"]
+[ext_resource type="Texture2D" uid="uid://bdxpilir3b457" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 01.png" id="2_pli81"]
+[ext_resource type="Texture2D" uid="uid://dmrlu8u8d42cd" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 02.png" id="3_vf08u"]
+[ext_resource type="Texture2D" uid="uid://bhny5nw3end8h" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 04.png" id="4_g52mc"]
+[ext_resource type="Texture2D" uid="uid://c2nm47x5ub7qb" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 05.png" id="5_ipex2"]
+[ext_resource type="Texture2D" uid="uid://cbclyl8cvtthe" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 06.png" id="6_xgjym"]
+[ext_resource type="Texture2D" uid="uid://5kd1poxj34ce" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 07.png" id="7_k6bc6"]
+[ext_resource type="Texture2D" uid="uid://cva04gvj6s8mr" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 08.png" id="8_qmqw6"]
+[ext_resource type="Texture2D" uid="uid://di7xb76hnn8ho" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 02.png" id="11_ktlwg"]
+[ext_resource type="Texture2D" uid="uid://bunpso578ws6d" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 03.png" id="12_h3urx"]
+[ext_resource type="Texture2D" uid="uid://8e15logl6hlx" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="13_f77ns"]
+[ext_resource type="Texture2D" uid="uid://l1fmly362f62" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="14_5he72"]
+[ext_resource type="Texture2D" uid="uid://cerddsqgc3dig" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="15_v3i2n"]
+[ext_resource type="Texture2D" uid="uid://jdadjhqwk8if" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="17_1sk30"]
+[ext_resource type="Texture2D" uid="uid://b566qfstha6mk" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="18_f23gw"]
+[ext_resource type="Texture2D" uid="uid://b8vocrktigvi" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="19_m7b8v"]
+[ext_resource type="Texture2D" uid="uid://dhibf062uwfr8" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 01.png" id="20_fo8xk"]
+[ext_resource type="Texture2D" uid="uid://bfej0uvdwuggu" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 02.png" id="21_xgpy1"]
+[ext_resource type="Texture2D" uid="uid://bxavywqmcxmdn" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 03.png" id="22_jdnhm"]
+[ext_resource type="Texture2D" uid="uid://btgoao6v5rm73" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 04.png" id="23_ocomn"]
+[ext_resource type="Texture2D" uid="uid://bq2eigdy7c0qv" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 05.png" id="24_a4ipy"]
+[ext_resource type="Texture2D" uid="uid://dxtenjrp4c83x" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 02.png" id="26_1ka88"]
+[ext_resource type="Texture2D" uid="uid://b1m7fac7us2jm" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 03.png" id="27_sps3n"]
+[ext_resource type="Texture2D" uid="uid://06snhieieq8d" path="res://Assets/The Crusty Crew/Sprites/Fierce Tooth/08-Hit/Hit 04.png" id="28_734ck"]
+[ext_resource type="PackedScene" uid="uid://cu4gvmfvu26ex" path="res://Scenes/UI/health_bar.tscn" id="29_ogsne"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1ds0"]
+radius = 9.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c5q4b"]
+radius = 8.0
+height = 22.0
+
+[sub_resource type="Animation" id="Animation_i6ddu"]
+resource_name = "Die"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_cslot"), ExtResource("17_1sk30"), ExtResource("18_f23gw"), ExtResource("19_m7b8v")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iqtvw"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_7x7v7"), ExtResource("3_vf08u"), ExtResource("1_oyqdv"), ExtResource("4_g52mc"), ExtResource("5_ipex2"), ExtResource("6_xgjym"), ExtResource("7_k6bc6"), ExtResource("8_qmqw6")]
+}
+
+[sub_resource type="Animation" id="Animation_dbnvk"]
+resource_name = "Run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_pli81"), ExtResource("11_ktlwg"), ExtResource("12_h3urx"), ExtResource("13_f77ns"), ExtResource("14_5he72"), ExtResource("15_v3i2n")]
+}
+
+[sub_resource type="Animation" id="Animation_ywchv"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_fo8xk"), ExtResource("21_xgpy1"), ExtResource("22_jdnhm"), ExtResource("23_ocomn"), ExtResource("24_a4ipy")]
+}
+
+[sub_resource type="Animation" id="Animation_ye0mk"]
+resource_name = "Damage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_cd1u7"), ExtResource("26_1ka88"), ExtResource("27_sps3n"), ExtResource("28_734ck")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"get_damage"
+}, {
+"args": [],
+"method": &"get_damage"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7wqf"]
+_data = {
+"Damage": SubResource("Animation_ye0mk"),
+"Die": SubResource("Animation_i6ddu"),
+"Idle": SubResource("Animation_iqtvw"),
+"Run": SubResource("Animation_dbnvk"),
+"attack": SubResource("Animation_ywchv")
+}
+
+[node name="FierceTooth" type="CharacterBody2D" groups=["Enemies"]]
+position = Vector2(0, -5)
+collision_layer = 2
+script = ExtResource("1_ljq71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("28_734ck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_u1ds0")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_c5q4b")
+debug_color = Color(0, 0.701961, 0.219608, 0.419608)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+target_position = Vector2(0, 15)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q7wqf")
+}
+
+[node name="HealthBar" parent="." instance=ExtResource("29_ogsne")]
+offset_left = 1.0
+offset_top = -16.0
+offset_right = 1.0
+offset_bottom = -16.0
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

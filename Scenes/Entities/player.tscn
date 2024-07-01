@@ -202,7 +202,7 @@ debug_color = Color(0.145098, 0.643137, 0, 0.419608)
 shape = SubResource("CapsuleShape2D_wuevy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("23_ikhhk")
+texture = ExtResource("2_gj7fr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -20)

@@ -38,6 +38,39 @@ height = 26.0
 radius = 8.0
 height = 22.0
 
+[sub_resource type="Animation" id="Animation_ye0mk"]
+resource_name = "Damage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_cd1u7"), ExtResource("26_1ka88"), ExtResource("27_sps3n"), ExtResource("28_734ck")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"get_damage"
+}, {
+"args": [],
+"method": &"get_damage"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_i6ddu"]
 resource_name = "Die"
 length = 0.3
@@ -116,39 +149,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("20_fo8xk"), ExtResource("21_xgpy1"), ExtResource("22_jdnhm"), ExtResource("23_ocomn"), ExtResource("24_a4ipy")]
-}
-
-[sub_resource type="Animation" id="Animation_ye0mk"]
-resource_name = "Damage"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_cd1u7"), ExtResource("26_1ka88"), ExtResource("27_sps3n"), ExtResource("28_734ck")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"get_damage"
-}, {
-"args": [],
-"method": &"get_damage"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q7wqf"]

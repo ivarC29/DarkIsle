@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg83jfnrd516o"]
+
+[ext_resource type="PackedScene" uid="uid://dcx1fxmu8epey" path="res://Scenes/Entities/bat.tscn" id="1_j5rkp"]
+[ext_resource type="Script" path="res://Scripts/fly_enemies.gd" id="1_sfkc2"]
+
+[sub_resource type="Curve2D" id="Curve2D_cv1gy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 462, 315, 0, 0, 0, 0, 370, 332, 0, 0, 0, 0, 533, 203, 0, 0, 0, 0, 549, 296, 0, 0, 0, 0, 460, 401, 0, 0, 0, 0, 339, 386, 0, 0, 0, 0, 289, 302, 0, 0, 0, 0, 214, 292, 0, 0, 0, 0, 355, 210, 0, 0, 0, 0, 603, 287, 0, 0, 0, 0, 549, 324, 0, 0, 0, 0, 531, 365, 0, 0, 0, 0, 429, 386, 0, 0, 0, 0, 361, 397, 0, 0, 0, 0, 223, 376, 0, 0, 0, 0, 280, 371, 0, 0, 0, 0, 29, 318, 0, 0, 0, 0, 257, 203, 0, 0, 0, 0, 469, 285, 0, 0, 0, 0, 735, 224, 0, 0, 0, 0, 691, 262, 0, 0, 0, 0, 465, 314)
+}
+point_count = 22
+
+[node name="FlyEnemies" type="Path2D"]
+curve = SubResource("Curve2D_cv1gy")
+script = ExtResource("1_sfkc2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(369.982, 331.865)
+rotation = -2.26124
+progress = 94.0
+rotates = false
+
+[node name="_Timer_74867" type="Timer" parent="PathFollow2D"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Bat" parent="PathFollow2D" instance=ExtResource("1_j5rkp")]
+position = Vector2(-11.7991, -4.55872)
+rotation = 2.26124
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="."]
+position = Vector2(462, 315)
+rotation = -2.26124
+rotates = false
+
+[node name="_Timer_74867" type="Timer" parent="PathFollow2D2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Bat" parent="PathFollow2D2" instance=ExtResource("1_j5rkp")]
+position = Vector2(-11.7991, -4.55872)
+rotation = 2.26124
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(541, 317)
+scale = Vector2(2.55, 2.65)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

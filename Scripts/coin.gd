@@ -3,6 +3,8 @@ extends Node2D
 func _ready():
 	$AnimationPlayer.play("Idle")
 
-func _on_area_2d_area_entered(_area):
-	GameManager.gain_coins(1)
-	$AnimationPlayer.play("Get")
+func _on_area_2d_area_entered(area):
+	if area.get_parent() is Player:
+		GameManager.gain_coins(1)
+		$AudioStreamPlayer.playing = true
+		$AnimationPlayer.play("Get")

@@ -38,6 +38,22 @@ height = 26.0
 radius = 8.0
 height = 22.0
 
+[sub_resource type="Animation" id="Animation_ywchv"]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("20_fo8xk"), ExtResource("21_xgpy1"), ExtResource("22_jdnhm"), ExtResource("23_ocomn"), ExtResource("24_a4ipy")]
+}
+
 [sub_resource type="Animation" id="Animation_ye0mk"]
 resource_name = "Damage"
 length = 0.3
@@ -135,29 +151,13 @@ tracks/0/keys = {
 "values": [ExtResource("2_pli81"), ExtResource("11_ktlwg"), ExtResource("12_h3urx"), ExtResource("13_f77ns"), ExtResource("14_5he72"), ExtResource("15_v3i2n")]
 }
 
-[sub_resource type="Animation" id="Animation_ywchv"]
-resource_name = "attack"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("20_fo8xk"), ExtResource("21_xgpy1"), ExtResource("22_jdnhm"), ExtResource("23_ocomn"), ExtResource("24_a4ipy")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q7wqf"]
 _data = {
+"Attack": SubResource("Animation_ywchv"),
 "Damage": SubResource("Animation_ye0mk"),
 "Die": SubResource("Animation_i6ddu"),
 "Idle": SubResource("Animation_iqtvw"),
-"Run": SubResource("Animation_dbnvk"),
-"attack": SubResource("Animation_ywchv")
+"Run": SubResource("Animation_dbnvk")
 }
 
 [node name="FierceTooth" type="CharacterBody2D" groups=["Enemies"]]
@@ -166,7 +166,7 @@ collision_layer = 2
 script = ExtResource("1_ljq71")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("28_734ck")
+texture = ExtResource("20_fo8xk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)

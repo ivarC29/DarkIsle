@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var animation = $AnimationPlayer
+
 @export var speed = -60.0
 var current_speed = 0.0
 
@@ -16,7 +18,7 @@ var can_attack = true
 
 func _ready():
 	health = max_health
-	$AnimationPlayer.play("Run")
+	animation.play("Run")
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -38,15 +40,26 @@ func flip():
 
 func _on_hit_box_area_entered(area):
 	if area.get_parent() is Player && !dead && can_attack:
-		area.get_parent().take_damage(1)
+		attack(area)
+
+		
 		
 func take_damage(damage):
 	if !dead:
-		$AnimationPlayer.play("Damage")
+		animation.play("Damage")
 		health -= damage
 		get_node("HealthBar").update_healthbar(health, max_health)
 		if health <= 0:
 			die()
+			
+func attack(entity):
+	can_attack = false
+	animation.play("Attack")
+	entity.get_parent().take_damage(1)
+	await get_tree().create_timer(0.4).timeout
+	animation.play("Run")
+	can_attack = true
+	
 
 func get_damage():
 	hit = !hit
@@ -58,9 +71,9 @@ func get_damage():
 	else:
 		speed = current_speed
 		can_attack = true
-		$AnimationPlayer.play("Run")
+		animation.play("Run")
 		
 func die():
 	dead = true
 	speed = 0
-	$AnimationPlayer.play("Die")
+	animation.play("Die")

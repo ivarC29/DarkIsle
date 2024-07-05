@@ -1,0 +1,95 @@
+[gd_scene load_steps=19 format=3 uid="uid://cwcxboo6c0h1s"]
+
+[ext_resource type="Texture2D" uid="uid://du5yeuo680r87" path="res://Assets/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="1_4h0ls"]
+[ext_resource type="Texture2D" uid="uid://3ps8e8qtj3xp" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="1_6lngt"]
+[ext_resource type="Script" path="res://Scripts/key.gd" id="1_16etx"]
+[ext_resource type="Texture2D" uid="uid://rxsjkeb8ta6r" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="2_nm0ps"]
+[ext_resource type="Texture2D" uid="uid://4hbbihukpt2j" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="3_ut4kt"]
+[ext_resource type="Texture2D" uid="uid://dhgk1b6mnfk8n" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="4_biush"]
+[ext_resource type="Texture2D" uid="uid://d24yyajudaapd" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="5_vg0rx"]
+[ext_resource type="Texture2D" uid="uid://dhp7cqs7e7k3d" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="6_pv47v"]
+[ext_resource type="Texture2D" uid="uid://odygjygkmyhx" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="7_1ylvc"]
+[ext_resource type="Texture2D" uid="uid://db8s2wkbobsy4" path="res://Assets/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="8_ygamx"]
+[ext_resource type="Texture2D" uid="uid://d3recxtisebix" path="res://Assets/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="10_nljx4"]
+[ext_resource type="Texture2D" uid="uid://14siw1rjethy" path="res://Assets/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="11_0iejd"]
+[ext_resource type="Texture2D" uid="uid://ch1lbl8rrth6u" path="res://Assets/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="12_24c43"]
+[ext_resource type="AudioStream" uid="uid://c2ueqcdmdyrxb" path="res://Assets/Music/coin1.wav" id="14_6itmp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iu762"]
+radius = 4.0
+height = 16.0
+
+[sub_resource type="Animation" id="Animation_rvqrg"]
+resource_name = "Idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_6lngt"), ExtResource("2_nm0ps"), ExtResource("3_ut4kt"), ExtResource("4_biush"), ExtResource("5_vg0rx"), ExtResource("6_pv47v"), ExtResource("7_1ylvc"), ExtResource("8_ygamx")]
+}
+
+[sub_resource type="Animation" id="Animation_jduds"]
+resource_name = "Get"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_4h0ls"), ExtResource("10_nljx4"), ExtResource("11_0iejd"), ExtResource("12_24c43")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_evjc1"]
+_data = {
+"Get": SubResource("Animation_jduds"),
+"Idle": SubResource("Animation_rvqrg")
+}
+
+[node name="Key" type="Node2D"]
+script = ExtResource("1_16etx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6lngt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_iu762")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_evjc1")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6itmp")
+pitch_scale = 0.5
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

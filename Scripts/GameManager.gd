@@ -4,7 +4,7 @@ signal gained_coins()
 
 var coins : int
 
-var current_checkpoint : CheckPoint
+var current_checkpoint
 
 var player : Player
 
@@ -19,3 +19,7 @@ func respawn_player():
 func gain_coins(coins_gained:int):
 	coins += coins_gained
 	emit_signal("gained_coins")
+	
+func change_level(level):
+	get_tree().change_scene_to_packed(level)
+	

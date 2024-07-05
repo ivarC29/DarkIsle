@@ -17,6 +17,7 @@ var health = 0
 var can_take_damage = true
 @export var hit = false
 @export var is_live = true
+@export var  has_key = false
 
 func _ready():
 	player_damage = 1.0

@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://dao71og8mgxpo"]
+
+[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="1_xiw2n"]
+[ext_resource type="Texture2D" uid="uid://cwigxk2c663gp" path="res://Assets/Wood and Paper UI/11-Health Bar/Health Bar.png" id="2_ef43i"]
+[ext_resource type="Texture2D" uid="uid://clwhrbmtugbtc" path="res://Assets/Wood and Paper UI/11-Health Bar/Heart.png" id="3_5kjks"]
+[ext_resource type="Texture2D" uid="uid://dj13idecscik4" path="res://Assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="4_1i4dw"]
+
+[node name="UIManager" type="CanvasLayer" groups=["HUD"]]
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
+script = ExtResource("1_xiw2n")
+
+[node name="LiveBar" type="TextureRect" parent="."]
+offset_left = 18.5714
+offset_top = 14.2857
+offset_right = 172.571
+offset_bottom = 76.2857
+texture = ExtResource("2_ef43i")
+
+[node name="Live" type="TextureRect" parent="LiveBar"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 22.8571
+offset_right = 62.0
+offset_bottom = 41.8571
+texture = ExtResource("3_5kjks")
+
+[node name="Live2" type="TextureRect" parent="LiveBar"]
+layout_mode = 0
+offset_left = 65.7143
+offset_top = 22.8571
+offset_right = 87.7143
+offset_bottom = 41.8571
+texture = ExtResource("3_5kjks")
+
+[node name="Live3" type="TextureRect" parent="LiveBar"]
+layout_mode = 0
+offset_left = 91.4286
+offset_top = 22.8571
+offset_right = 113.429
+offset_bottom = 41.8571
+texture = ExtResource("3_5kjks")
+
+[node name="CoinIcon" type="TextureRect" parent="."]
+offset_left = 45.7143
+offset_top = 88.5714
+offset_right = 85.7143
+offset_bottom = 128.571
+texture = ExtResource("4_1i4dw")
+
+[node name="CoinDisplay" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 89.0
+offset_right = 122.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
+theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.152941, 1)
+theme_override_font_sizes/font_size = 30
+text = "0
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+clip_text = true

@@ -9,9 +9,9 @@ func _physics_process(delta):
 	if !is_in_screen:
 		return
 	for route in routes:
-		if route.get_class() == "PathFollow2D":
-			await route.get_child(1).wake_up()
+		if route.get_class() == "PathFollow2D" and route.get_child_count() > 1:
 			if !route.get_child(1).dead:
+				route.get_child(1).wake_up()
 				route.progress += SPEED * delta
 
 

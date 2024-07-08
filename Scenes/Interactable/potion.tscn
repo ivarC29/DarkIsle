@@ -1,0 +1,88 @@
+[gd_scene load_steps=17 format=3 uid="uid://bst40c8kpq7ub"]
+
+[ext_resource type="Texture2D" uid="uid://ij3j4tcv3q5r" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/01.png" id="1_1ap62"]
+[ext_resource type="Script" path="res://Scripts/potion.gd" id="1_cusaq"]
+[ext_resource type="Texture2D" uid="uid://duu4hcr5hvnm5" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/02.png" id="2_4hs6y"]
+[ext_resource type="Texture2D" uid="uid://bvm6sqyo06eg" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/03.png" id="3_06orn"]
+[ext_resource type="Texture2D" uid="uid://b4cg0pnf5b7o" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/04.png" id="4_4vu2v"]
+[ext_resource type="Texture2D" uid="uid://dqdikhfly3efg" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/05.png" id="5_47rrj"]
+[ext_resource type="Texture2D" uid="uid://xa3jporb62yo" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/06.png" id="6_b1ll5"]
+[ext_resource type="Texture2D" uid="uid://ckpiycgeukogo" path="res://Assets/Pirate Treasure/Sprites/Blue Potion/07.png" id="7_v3ybf"]
+[ext_resource type="Texture2D" uid="uid://dc60rjyjny7nu" path="res://Assets/Pirate Treasure/Sprites/Potion Effect/01.png" id="9_8ornx"]
+[ext_resource type="Texture2D" uid="uid://bfuaql5ku5wfs" path="res://Assets/Pirate Treasure/Sprites/Potion Effect/02.png" id="10_ylvr7"]
+[ext_resource type="Texture2D" uid="uid://cfjncrqphvufi" path="res://Assets/Pirate Treasure/Sprites/Potion Effect/03.png" id="11_88t8p"]
+[ext_resource type="Texture2D" uid="uid://cylgtwrk1i8t1" path="res://Assets/Pirate Treasure/Sprites/Potion Effect/04.png" id="12_he4vs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmxrg"]
+size = Vector2(8, 13)
+
+[sub_resource type="Animation" id="Animation_kicwl"]
+resource_name = "Idle"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_1ap62"), ExtResource("2_4hs6y"), ExtResource("3_06orn"), ExtResource("4_4vu2v"), ExtResource("5_47rrj"), ExtResource("6_b1ll5"), ExtResource("7_v3ybf")]
+}
+
+[sub_resource type="Animation" id="Animation_xwwe4"]
+resource_name = "Get"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_8ornx"), ExtResource("10_ylvr7"), ExtResource("11_88t8p"), ExtResource("12_he4vs")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h81a8"]
+_data = {
+"Get": SubResource("Animation_xwwe4"),
+"Idle": SubResource("Animation_kicwl")
+}
+
+[node name="Potion" type="Node2D"]
+script = ExtResource("1_cusaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ap62")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_mmxrg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h81a8")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

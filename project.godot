@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Dark Isle"
-run/main_scene="res://Scenes/Level1.tscn"
+run/main_scene="res://Scenes/splash/splash.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Wood and Paper UI/Splash/pixelPionners.png"
 
 [autoload]
 
@@ -23,8 +23,11 @@ GameManager="*res://Scripts/GameManager.gd"
 
 window/size/viewport_width=854
 window/size/viewport_height=480
-window/size/mode=2
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="N:/ivarc29/GameDevelope/Assets/DarkIsle.avi"
 
 [input]
 

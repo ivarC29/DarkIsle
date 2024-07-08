@@ -1,0 +1,148 @@
+[gd_scene load_steps=11 format=3 uid="uid://chjlhihex8wm8"]
+
+[ext_resource type="Script" path="res://Scripts/Splash/MainScreen.gd" id="1_uswoq"]
+[ext_resource type="Texture2D" uid="uid://enumsvkgu5ip" path="res://Assets/BackGround/Background.png" id="2_7edis"]
+[ext_resource type="Texture2D" uid="uid://b4rh8tkfu20ll" path="res://Assets/Wood and Paper UI/Sprites/Big Text/4.png" id="3_mh8gn"]
+[ext_resource type="Texture2D" uid="uid://crqxva03d6tdr" path="res://Assets/Wood and Paper UI/Sprites/Big Text/1.png" id="4_ert8m"]
+[ext_resource type="Texture2D" uid="uid://d1bdicpbctrkv" path="res://Assets/Wood and Paper UI/Sprites/Big Text/18.png" id="5_jhrdb"]
+[ext_resource type="Texture2D" uid="uid://dpuv1gorb5mqm" path="res://Assets/Wood and Paper UI/Sprites/Big Text/11.png" id="6_fl7wu"]
+[ext_resource type="Texture2D" uid="uid://wjfvgcbadvma" path="res://Assets/Wood and Paper UI/Sprites/Big Text/9.png" id="7_j1raw"]
+[ext_resource type="Texture2D" uid="uid://bqle7jywei30y" path="res://Assets/Wood and Paper UI/Sprites/Big Text/19.png" id="8_itvjy"]
+[ext_resource type="Texture2D" uid="uid://c4phcf3w6b38e" path="res://Assets/Wood and Paper UI/Sprites/Big Text/12.png" id="9_0g7s7"]
+[ext_resource type="Texture2D" uid="uid://di7bfnnsepdpe" path="res://Assets/Wood and Paper UI/Sprites/Big Text/5.png" id="10_hnd1m"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uswoq")
+metadata/_edit_lock_ = true
+
+[node name="BackGround" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="BackGround"]
+modulate = Color(0.486275, 0.486275, 0.486275, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7edis")
+metadata/_edit_lock_ = true
+
+[node name="Letter" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 102.0
+offset_right = 263.0
+offset_bottom = 142.0
+texture = ExtResource("3_mh8gn")
+metadata/_edit_lock_ = true
+
+[node name="Letter2" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = 113.0
+offset_right = 306.0
+offset_bottom = 153.0
+texture = ExtResource("4_ert8m")
+metadata/_edit_lock_ = true
+
+[node name="Letter3" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 104.0
+offset_right = 351.0
+offset_bottom = 144.0
+texture = ExtResource("5_jhrdb")
+metadata/_edit_lock_ = true
+
+[node name="Letter4" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 112.0
+offset_right = 393.0
+offset_bottom = 152.0
+texture = ExtResource("6_fl7wu")
+metadata/_edit_lock_ = true
+
+[node name="Letter5" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 100.0
+offset_right = 487.0
+offset_bottom = 140.0
+texture = ExtResource("7_j1raw")
+metadata/_edit_lock_ = true
+
+[node name="Letter6" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 110.0
+offset_right = 526.0
+offset_bottom = 150.0
+texture = ExtResource("8_itvjy")
+metadata/_edit_lock_ = true
+
+[node name="Letter7" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 100.0
+offset_right = 569.0
+offset_bottom = 140.0
+texture = ExtResource("9_0g7s7")
+metadata/_edit_lock_ = true
+
+[node name="Letter8" type="TextureRect" parent="BackGround"]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 109.0
+offset_right = 611.0
+offset_bottom = 149.0
+texture = ExtResource("10_hnd1m")
+metadata/_edit_lock_ = true
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = -15.5
+offset_right = 24.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+flat = true
+
+[connection signal="pressed" from="Menu/Button" to="." method="_on_button_pressed"]

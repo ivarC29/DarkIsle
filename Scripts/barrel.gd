@@ -4,7 +4,7 @@ extends Node2D
 @export var durability = 0
 
 @onready var spawn_pos = global_position
-var reward = preload("res://Scenes/Interactable/coin.tscn")
+var reward = preload("res://Scenes/Interactable/potion.tscn")
 
 func _ready():
 	durability = max_durability

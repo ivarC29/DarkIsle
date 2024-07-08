@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dupplthh1lnnj"]
+[gd_scene load_steps=34 format=3 uid="uid://dupplthh1lnnj"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Level1.gd" id="1_i75re"]
 [ext_resource type="Texture2D" uid="uid://pbgb2bnvcgst" path="res://Assets/BackGround/1.png" id="1_u25q3"]
@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dbcm1ieqk3co3" path="res://Assets/Merchant Ship/Sprites/Water/Water/Bottom/1.png" id="10_21mji"]
 [ext_resource type="Texture2D" uid="uid://bua446v4ln1bd" path="res://Assets/Merchant Ship/Sprites/Water/Water/Top/1.png" id="10_hvean"]
 [ext_resource type="Texture2D" uid="uid://dsuxx4p66dwo1" path="res://Assets/Merchant Ship/Sprites/Water/Water/Top/2.png" id="11_f84sf"]
-[ext_resource type="Texture2D" uid="uid://dj13idecscik4" path="res://Assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="11_n77lm"]
-[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="11_shds0"]
 [ext_resource type="Texture2D" uid="uid://c5e1bia6s0ksq" path="res://Assets/Merchant Ship/Sprites/Water/Water/Top/3.png" id="12_tpaxu"]
 [ext_resource type="PackedScene" uid="uid://clt1r6ok1ba3m" path="res://Scenes/Interactable/barrel.tscn" id="13_7v6bn"]
 [ext_resource type="Texture2D" uid="uid://dh5uuogkbxnxs" path="res://Assets/Merchant Ship/Sprites/Water/Water/Top/4.png" id="13_n8758"]
@@ -22,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c3c6nad2o6sj2" path="res://Scenes/Interactable/falling_spikes.tscn" id="15_umoe0"]
 [ext_resource type="PackedScene" uid="uid://bxcv1mv8g1gb8" path="res://Scenes/Interactable/jumppad.tscn" id="16_dq8a4"]
 [ext_resource type="PackedScene" uid="uid://canc74h6qxgs4" path="res://Scenes/Interactable/health_up.tscn" id="17_4xbbu"]
+[ext_resource type="PackedScene" uid="uid://dao71og8mgxpo" path="res://Scenes/UI/ui_manager.tscn" id="18_eb1db"]
 [ext_resource type="PackedScene" uid="uid://dvhl2b8k1i6b1" path="res://Scenes/Interactable/invisible_platform.tscn" id="22_abx67"]
 [ext_resource type="PackedScene" uid="uid://dmi0m40qkms7k" path="res://Scenes/Interactable/moving_platform.tscn" id="23_43p6p"]
 [ext_resource type="PackedScene" uid="uid://b2bnk4omh3nv3" path="res://Scenes/Interactable/totem.tscn" id="24_wxyar"]
@@ -458,7 +457,7 @@ position = Vector2(1846, 241)
 position = Vector2(1877, 241)
 
 [node name="Key" parent="." instance=ExtResource("28_i5r68")]
-position = Vector2(957, 423)
+position = Vector2(958, 372)
 
 [node name="CoinHolder" type="Node2D" parent="."]
 
@@ -499,16 +498,28 @@ position = Vector2(976, 403)
 position = Vector2(966, 389)
 
 [node name="Coin13" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
-position = Vector2(957, 375)
+position = Vector2(946, 417)
 
 [node name="Coin14" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
-position = Vector2(1181, 223)
+position = Vector2(967, 417)
 
 [node name="Coin15" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
 position = Vector2(1202, 208)
 
 [node name="Coin16" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
 position = Vector2(1224, 222)
+
+[node name="Coin22" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
+position = Vector2(2007, 244)
+
+[node name="Coin23" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
+position = Vector2(2023, 244)
+
+[node name="Coin24" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
+position = Vector2(2015, 230)
+
+[node name="Coin21" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
+position = Vector2(1178, 221)
 
 [node name="Coin17" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
 position = Vector2(-278, 228)
@@ -522,29 +533,7 @@ position = Vector2(-259, 246)
 [node name="Coin20" parent="CoinHolder" instance=ExtResource("9_dn4k1")]
 position = Vector2(-277, 246)
 
-[node name="UIManager" type="CanvasLayer" parent="."]
-scale = Vector2(0.7, 0.7)
-transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
-script = ExtResource("11_shds0")
-
-[node name="CoinIcon" type="TextureRect" parent="UIManager"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("11_n77lm")
-
-[node name="CoinDisplay" type="Label" parent="UIManager"]
-offset_left = 40.0
-offset_top = 5.71429
-offset_right = 78.0
-offset_bottom = 39.7143
-theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
-theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.152941, 1)
-theme_override_font_sizes/font_size = 24
-text = "0
-"
-horizontal_alignment = 2
-vertical_alignment = 1
-clip_text = true
+[node name="UIManager" parent="." instance=ExtResource("18_eb1db")]
 
 [node name="Barrel" parent="." instance=ExtResource("13_7v6bn")]
 position = Vector2(100, 372)

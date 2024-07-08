@@ -1,10 +1,11 @@
-[gd_scene load_steps=39 format=3 uid="uid://c4faqaa0ta0fm"]
+[gd_scene load_steps=40 format=3 uid="uid://c4faqaa0ta0fm"]
 
 [ext_resource type="Texture2D" uid="uid://e5scb2lp84df" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_ag0xs"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_j3nio"]
 [ext_resource type="Texture2D" uid="uid://c2ay00eukm61p" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="2_gj7fr"]
 [ext_resource type="Texture2D" uid="uid://jongsehrgekb" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 02.png" id="2_oqcud"]
 [ext_resource type="Texture2D" uid="uid://buc4xgbyomsim" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 03.png" id="3_lkl3n"]
+[ext_resource type="PackedScene" uid="uid://cu4gvmfvu26ex" path="res://Scenes/UI/health_bar.tscn" id="3_vwd6p"]
 [ext_resource type="Texture2D" uid="uid://d1jat011k3gcw" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 04.png" id="4_c2tem"]
 [ext_resource type="Texture2D" uid="uid://10nphqp3ei6o" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 05.png" id="5_av51p"]
 [ext_resource type="Texture2D" uid="uid://7kqxtr808gd7" path="res://Assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/10-Run Sword/Run Sword 01.png" id="7_pk4f2"]
@@ -215,6 +216,12 @@ monitorable = false
 position = Vector2(18, 3)
 shape = SubResource("CircleShape2D_161gn")
 debug_color = Color(0.701961, 0, 0, 0.419608)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_vwd6p")]
+offset_left = 1.0
+offset_top = -22.0
+offset_right = 1.0
+offset_bottom = -22.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

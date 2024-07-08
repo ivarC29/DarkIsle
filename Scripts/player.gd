@@ -3,6 +3,7 @@ class_name Player
 
 @onready var animation = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var hud = get_tree().get_nodes_in_group("HUD")[0]
 
 @export var speed = 200.0
 @export var jump_velocity = -300.0
@@ -88,6 +89,7 @@ func take_damage(damage:int):
 		attacking = false
 		animation.play("Damage")
 		health -= damage
+		get_node("HealthBar").update_healthbar(health, max_health)
 		if health <= 0:
 			is_live = false
 			animation.play("Die")
@@ -100,4 +102,8 @@ func iframes():
 	can_take_damage = true
 		
 func die():
+	GameManager.remove_live()
+	var live_bar = hud.get_node("LiveBar")
+	var lives = live_bar.get_children()
+	lives[GameManager.lives].visible = false
 	GameManager.respawn_player()

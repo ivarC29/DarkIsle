@@ -1,12 +1,14 @@
-[gd_scene load_steps=25 format=3 uid="uid://f633ehypmt4l"]
+[gd_scene load_steps=28 format=3 uid="uid://f633ehypmt4l"]
 
 [ext_resource type="Texture2D" uid="uid://cgdv6ftgyjsrc" path="res://Assets/BackGround/main_background.png" id="1_j30pv"]
+[ext_resource type="Script" path="res://Scripts/Splash/level_2.gd" id="1_w1m6a"]
 [ext_resource type="Texture2D" uid="uid://dwy1xm4n1exl1" path="res://Assets/BackGround/bgrd_tree1.png" id="2_jkd4n"]
 [ext_resource type="Texture2D" uid="uid://cwmxs8k4tow4q" path="res://Assets/BackGround/bgrd_tree2.png" id="3_4laht"]
 [ext_resource type="Texture2D" uid="uid://n23abwnpkh8h" path="res://Assets/BackGround/bgrd_tree3.png" id="4_hb1d8"]
 [ext_resource type="Texture2D" uid="uid://dhixr5vv21uaj" path="res://Assets/BackGround/bgrd_tree4.png" id="5_25amg"]
 [ext_resource type="Texture2D" uid="uid://vin7vf2cw5gb" path="res://Assets/BackGround/bgrd_tree5.png" id="6_jokh5"]
 [ext_resource type="Texture2D" uid="uid://dyhtjy2qbsqln" path="res://Assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="7_xfb6o"]
+[ext_resource type="PackedScene" uid="uid://dao71og8mgxpo" path="res://Scenes/UI/ui_manager.tscn" id="8_04abg"]
 [ext_resource type="PackedScene" uid="uid://c4faqaa0ta0fm" path="res://Scenes/Entities/player.tscn" id="8_q2fpt"]
 [ext_resource type="PackedScene" uid="uid://byepa0vy8fjwu" path="res://Scenes/Entities/ghost.tscn" id="9_6sa5w"]
 [ext_resource type="Texture2D" uid="uid://brqsau8q56o10" path="res://Assets/Trees/2.png" id="9_s14sn"]
@@ -18,9 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://u6cjuhj6j87t" path="res://Scenes/Interactable/coin.tscn" id="16_t2g83"]
 [ext_resource type="PackedScene" uid="uid://cwcxboo6c0h1s" path="res://Scenes/Interactable/key.tscn" id="17_xpesd"]
 [ext_resource type="PackedScene" uid="uid://canc74h6qxgs4" path="res://Scenes/Interactable/health_up.tscn" id="18_r8ipi"]
-[ext_resource type="Script" path="res://Scripts/UIManager.gd" id="19_tw6h2"]
-[ext_resource type="Texture2D" uid="uid://dj13idecscik4" path="res://Assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="20_jd7gl"]
 [ext_resource type="PackedScene" uid="uid://c3c6nad2o6sj2" path="res://Scenes/Interactable/falling_spikes.tscn" id="21_rxd78"]
+[ext_resource type="PackedScene" uid="uid://cdaw7gt2ng23m" path="res://Scenes/Entities/pirate_boss.tscn" id="22_kwg3w"]
+[ext_resource type="PackedScene" uid="uid://lvbgllpwrp40" path="res://Scenes/Interactable/chest.tscn" id="23_pra4a"]
+[ext_resource type="PackedScene" uid="uid://bst40c8kpq7ub" path="res://Scenes/Interactable/potion.tscn" id="24_0ta3o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e7c6u"]
 texture = ExtResource("7_xfb6o")
@@ -183,6 +186,7 @@ sources/2 = SubResource("TileSetAtlasSource_e7c6u")
 size = Vector2(20, 414)
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_w1m6a")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(594.538, -372.181)
@@ -230,6 +234,8 @@ centered = false
 tile_set = SubResource("TileSet_14j0f")
 format = 2
 layer_0/tile_data = PackedInt32Array(851979, 65538, 0, 851978, 65538, 0, 851977, 65538, 0, 851976, 65538, 0, 851975, 65538, 0, 851974, 65538, 0, 851973, 65538, 0, 851972, 65538, 0, 917508, 65538, 1, 917507, 65538, 1, 917506, 65538, 1, 917505, 65538, 1, 917504, 65538, 1, 851968, 65538, 0, 917503, 65538, 0, 983051, 65538, 2, 917515, 65538, 1, 983050, 65538, 2, 917514, 65538, 1, 983049, 65538, 2, 917513, 65538, 1, 983048, 65538, 2, 917512, 65538, 1, 983047, 65538, 2, 917511, 65538, 1, 983046, 65538, 2, 917510, 65538, 1, 983045, 65538, 2, 917509, 65538, 1, 983044, 65538, 2, 983043, 65538, 2, 851971, 65538, 0, 983042, 65538, 2, 851970, 65538, 0, 983041, 65538, 2, 851969, 65538, 0, 983040, 65538, 2, 1048575, 65538, 2, 983039, 65538, 1, 1048574, 65538, 2, 983038, 65538, 1, 917502, 65538, 0, 851981, 65538, 0, 851982, 65538, 0, 851983, 65538, 0, 851984, 65538, 1, 851985, 65538, 1, 851986, 65538, 1, 851987, 131074, 1, 851980, 65538, 0, 917516, 65538, 1, 983052, 65538, 2, 983054, 65538, 2, 983053, 65538, 2, 917517, 65538, 1, 917518, 65538, 1, 917519, 65538, 1, 983055, 65538, 2, 983056, 65538, 2, 983057, 65538, 2, 983058, 65538, 2, 983059, 131074, 2, 917523, 131074, 1, 917522, 65538, 1, 917521, 65538, 1, 917520, 65538, 1, 786448, 2, 0, 720913, 2, 0, 786449, 65538, 1, 655378, 2, 0, 720914, 65538, 1, 786450, 65538, 1, 589843, 262146, 0, 655379, 131074, 1, 720915, 131074, 1, 786451, 131074, 1, 589847, 262146, 4, 524313, 262146, 4, 524317, 262146, 4, 458784, 262146, 4, 917501, 65538, 0, 917500, 65538, 0, 917499, 65538, 0, 917498, 65538, 0, 917497, 2, 0, 983033, 2, 1, 983034, 65538, 1, 983035, 65538, 1, 983036, 65538, 1, 983037, 65538, 1, 1048573, 65538, 2, 1048572, 65538, 2, 1048571, 65538, 2, 1048570, 65538, 2, 1048569, 2, 2, 852017, 2, 1, 852018, 65538, 1, 983089, 2, 2, 917553, 2, 1, 917554, 65538, 1, 983090, 65538, 2, 786482, 131074, 1, 720946, 131074, 1, 655410, 131074, 1, 589874, 131074, 1, 524338, 131074, 1, 458802, 131074, 1, 393266, 65538, 1, 393265, 2, 1, 327729, 65538, 0, 327730, 65538, 0, 458801, 2, 1, 524337, 2, 1, 589873, 65538, 1, 655409, 2, 1, 720945, 2, 1, 786481, 2, 1, 327731, 65538, 0, 327732, 131074, 0, 393268, 65538, 2, 393267, 65538, 2, 852019, 65538, 0, 852020, 65538, 0, 852021, 65538, 0, 852022, 65538, 0, 852023, 65538, 0, 852024, 65538, 0, 852025, 65538, 0, 852026, 65538, 0, 852027, 65538, 0, 852028, 65538, 0, 852029, 65538, 0, 852030, 65538, 0, 852031, 65538, 0, 852032, 65538, 0, 917568, 65538, 1, 983104, 65538, 2, 983103, 65538, 2, 983102, 65538, 2, 983101, 65538, 2, 983100, 65538, 2, 983099, 65538, 2, 983098, 65538, 2, 983097, 65538, 2, 983096, 65538, 2, 983095, 65538, 2, 983094, 65538, 2, 983093, 65538, 2, 983092, 65538, 2, 983091, 65538, 2, 917555, 65538, 1, 917556, 65538, 1, 917557, 65538, 1, 917558, 65538, 1, 917559, 65538, 1, 917560, 65538, 1, 917561, 65538, 1, 917562, 65538, 1, 917563, 65538, 1, 917564, 65538, 1, 917565, 65538, 1, 917566, 65538, 1, 917567, 65538, 1, 655394, 262146, 4, 327728, 2, 4, 458794, 262146, 4, 458791, 262146, 4, 393253, 262146, 4, 327715, 262146, 4, 262178, 262146, 4, 196644, 2, 4, 196645, 65538, 4, 196646, 131074, 4, 589870, 2, 4, 589871, 65538, 4, 589872, 65538, 4, 852034, 65538, 1, 852035, 65538, 1, 917570, 65538, 1, 917571, 65538, 1, 983105, 65538, 2, 983106, 65538, 2, 983107, 65538, 2, 327746, 2, 0, 393282, 2, 1, 458818, 2, 1, 524354, 2, 1, 589890, 2, 1, 655426, 2, 1, 720962, 2, 1, 720963, 65538, 1, 655427, 65538, 1, 589891, 65538, 1, 524355, 65538, 1, 458819, 65538, 1, 393283, 65538, 1, 327747, 65538, 0, 786499, 65538, 1, 786498, 2, 1, 852033, 65538, 0, 917569, 65538, 1, 983108, 65538, 2, 917572, 65538, 1, 852036, 65538, 1, 786500, 65538, 1, 720964, 65538, 1, 655428, 65538, 1, 589892, 65538, 1, 524356, 65538, 1, 458820, 65538, 1, 393284, 65538, 1, 327748, 65538, 0, 327749, 65538, 0, 393285, 65538, 1, 458821, 65538, 1, 524357, 65538, 1, 589893, 65538, 1, 655429, 65538, 1, 720965, 65538, 1, 786501, 65538, 1, 852037, 65538, 1, 917573, 65538, 1, 983109, 65538, 2, 983110, 131074, 2, 917574, 131074, 1, 852038, 131074, 1, 786502, 131074, 1, 720966, 131074, 1, 655430, 131074, 1, 589894, 131074, 1, 524358, 131074, 1, 327750, 131074, 0, 393286, 131074, 1, 458822, 131074, 1, 393269, 65538, 4, 393270, 65538, 4, 393271, 65538, 4, 393272, 65538, 4, 393273, 65538, 4, 393274, 131074, 2, 327738, 262146, 0)
+
+[node name="UIManager" parent="." instance=ExtResource("8_04abg")]
 
 [node name="TreeCheckPoint" parent="." instance=ExtResource("13_15lxh")]
 position = Vector2(9, 365)
@@ -325,8 +331,13 @@ texture = ExtResource("9_s14sn")
 [node name="FlyEnemies" parent="." instance=ExtResource("10_e3ou7")]
 
 [node name="Player" parent="." instance=ExtResource("8_q2fpt")]
-modulate = Color(0.584314, 0.584314, 0.584314, 1)
+modulate = Color(0.737255, 0.737255, 0.737255, 1)
 position = Vector2(16, 395)
+
+[node name="PirateBoss" parent="." instance=ExtResource("22_kwg3w")]
+modulate = Color(0.882353, 0.882353, 0.882353, 1)
+position = Vector2(1790, 390)
+scale = Vector2(0.7, 0.7)
 
 [node name="Ghost" parent="." instance=ExtResource("9_6sa5w")]
 position = Vector2(484, 402)
@@ -350,32 +361,17 @@ position = Vector2(1490, 274)
 [node name="HealthUp" parent="." instance=ExtResource("18_r8ipi")]
 position = Vector2(1567, 148)
 
-[node name="UIManager2" type="CanvasLayer" parent="."]
-scale = Vector2(0.7, 0.7)
-transform = Transform2D(0.7, 0, 0, 0.7, 0, 0)
-script = ExtResource("19_tw6h2")
-
-[node name="CoinIcon" type="TextureRect" parent="UIManager2"]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("20_jd7gl")
-
-[node name="CoinDisplay" type="Label" parent="UIManager2"]
-offset_left = 40.0
-offset_top = 5.71429
-offset_right = 78.0
-offset_bottom = 39.7143
-theme_override_colors/font_color = Color(0.788235, 0.788235, 0.788235, 1)
-theme_override_colors/font_shadow_color = Color(0.152941, 0.152941, 0.152941, 1)
-theme_override_font_sizes/font_size = 24
-text = "0
-"
-horizontal_alignment = 2
-vertical_alignment = 1
-clip_text = true
-
 [node name="FallingSpikes" parent="." instance=ExtResource("21_rxd78")]
 position = Vector2(1200, 128)
 
 [node name="FallingSpikes2" parent="." instance=ExtResource("21_rxd78")]
 position = Vector2(1550, 191)
+
+[node name="Chest" parent="." instance=ExtResource("23_pra4a")]
+position = Vector2(1674, 143)
+
+[node name="Potion" parent="." instance=ExtResource("24_0ta3o")]
+position = Vector2(1648, 399)
+
+[node name="Potion2" parent="." instance=ExtResource("24_0ta3o")]
+position = Vector2(1552, 272)
